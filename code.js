@@ -87,3 +87,47 @@ function userInfoValidation()
 
     console.log("Input Validated");
 }
+
+const gif = document.getElementById("gif");
+let incrementor = 1;
+let leftPos = 0
+
+function testRequestAnimationFrame()
+{
+    incrementor = 1;
+
+    let startButton = document.getElementById("startAnimation");
+
+    startButton.disabled = true;
+
+    let stopButton = document.getElementById("stopAnimation");
+
+    stopButton.disabled = false;
+
+    animationLoop();
+    //requestAnimationFrame(animationLoop);
+}
+
+function stopAnimationFrame()
+{
+    let startButton = document.getElementById("startAnimation");
+
+    startButton.disabled = false;
+
+    let stopButton = document.getElementById("stopAnimation");
+
+    stopButton.disabled = true;
+
+    incrementor = 0;
+}
+
+function animationLoop()
+{
+    leftPos += incrementor;
+
+    console.log(leftPos);
+
+    gif.style.left = leftPos + "px";
+
+    requestAnimationFrame(animationLoop);
+}
